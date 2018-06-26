@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+<!-- configure DataSource bean -->
+<!-- <bean id="drds" class="org.springframework.jdbc.driver.OracleDriver"> -->
+<!-- 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> -->
+<!-- 	<property name="url" value = "jdbc:oracle:thin:@localhost:1521:xe"/> -->
+<!-- 	<property name="user" value="system"/> -->
+<!-- 	<property name="password" value="manager"/> -->
+<!-- </bean> -->
+
+
+<bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="system"/>
+		<property name="password" value="manager"/>		
+	</bean>
+	
+
+<!-- Cfg DAO class -->
+ <bean id="empDAO" class="com.sp.dao.EmployeeDaoImpl">
+     <property name="ds" ref="drds"/>
+ </bean>
+ <!-- Cfg Service class -->
+  <bean id="empService"  class="com.sp.service.EmployeeServiceImpl">
+       <property name="dao"  ref="empDAO"/>
+  </bean>
+  <!-- Cfg Controller class -->
+  <bean id="empController"  class="com.sp.controller.EmployeeController">
+       <property name="service"  ref="empService"/>
+  </bean>
+
+</beans>
