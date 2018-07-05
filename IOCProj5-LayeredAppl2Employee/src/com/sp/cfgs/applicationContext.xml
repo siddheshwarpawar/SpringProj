@@ -15,16 +15,16 @@
 
 
 
-<!-- this is bean inheritance implementation or realtime example if there is need of using another -->
-<!-- singleconnectin datasource object then we have go for SingleconnnectionDatasource option  and SingleConnectionDatasorce is -->
-<!--  is having the same Property  so need to repeat those properties just use Bean Inheritence concept -->
+<!-- this is bean inheritance implementation or realtime example if there is need of using another datasource like 
+SingleConnectinDatasource . And SingleConnectionDatasorce is having the same Property  so need to repeat those 	properties just use
+ Bean Inheritence concept -->
 <bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 		<property name="username" value="system"/>
 		<property name="password" value="manager"/>		
 	</bean>
-
+<!-- Bean inheritaence -->
 <bean id = "scds" class = "org.springframework.jdbc.datasource.SingleConnectionDataSource" parent = "drds"/>
 	
 
@@ -35,10 +35,12 @@
  <bean id="empDAO" class="com.sp.dao.EmployeeDaoImpl">
      <property name="ds" ref="scds"/>
  </bean>
+	
  <!-- Cfg Service class -->
   <bean id="empService"  class="com.sp.service.EmployeeServiceImpl">
        <property name="dao"  ref="empDAO"/>
   </bean>
+	
   <!-- Cfg Controller class -->
   <bean id="empController"  class="com.sp.controller.EmployeeController">
        <property name="service"  ref="empService"/>
