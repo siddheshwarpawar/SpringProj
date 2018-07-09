@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id = "bike1" class = "com.sp.beans.Bike" abstract="true">
+		<constructor-arg name = "regNumber" value="121"/>
+		<constructor-arg name = "color" value="red"/>
+		<constructor-arg name="engineCC" value="pulsor180"/>
+
+
+	<!--	<constructor-arg name = "milage" value="40"/> -->
+	<!--	<constructor-arg name="model" value="pulsor"/> -->
+	<!--	<constructor-arg name="ownerName" value="ravi"/> -->
+
+	</bean>
+	
+	<bean id = "bike2" class = "com.sp.beans.Bike" parent="bike1">
+			<constructor-arg name = "milage" value="40"/>
+			<constructor-arg name = "model" value="pulsor"/>
+			<constructor-arg name = "ownerName" value="nilesh"/>
+	</bean>
+</beans>

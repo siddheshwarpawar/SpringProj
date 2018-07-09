@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+<!-- This by using list collection -->
+
+<!-- 	<bean id = "fy" class="com.sp.beans.EnggCourse" abstract = "true"> -->
+<!-- 		<property name="subjects"> -->
+<!-- 			<list> -->
+<!-- 				<value>Physics</value> -->
+<!-- 				<value>Chemistry</value> -->
+<!-- 				<value>Basic Electronics</value> -->
+<!-- 				<value>Electrical Technology</value> -->
+<!-- 				<value>C</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id = "sy" class = "com.sp.beans.EnggCourse" parent = "fy" > -->
+<!-- 		<property name="subjects"> -->
+<!-- 			<list merge="true" > -->
+<!-- 				<value>RDBMS</value> -->
+<!-- 				<value>M2 </value> -->
+<!-- 				<value>Microprocesor</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+
+
+
+
+<!-- This by using Set collection -->
+
+
+	<bean id = "fy" class = "com.sp.beans.EnggCourse" abstract = "true">
+		<property name="subjects">
+			<set>
+				<value>physics</value>
+				<value>physics</value>
+				<value>Chemistry</value>
+				<value>Biology</value>
+			</set>
+		</property>
+	</bean>
+	<bean id = "sy" class = "com.sp.beans.EnggCourse" parent = "fy">
+		<property name="subjects">
+			<set merge = "true">
+				<value>Microprocessor</value>
+				<value>M2 </value>
+				<value>CAM</value>
+			</set>
+		</property>
+	</bean>
+</beans>

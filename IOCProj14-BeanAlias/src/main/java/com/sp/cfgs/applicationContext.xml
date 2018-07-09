@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- Spring bean cofiguration -->
+	<bean id = "st" name = "Boot" class = "com.sp.beans.ShooeType">
+		<property name="shooeType">
+			<list>
+				<value>Formal Shooe</value>
+				<value>Lofer</value>
+				<value>Monk Shooe</value>
+				<value>Snikers</value>
+				<value>Chelsa</value>
+			</list>
+		</property>
+	</bean>
+	<alias name="st"  alias="shooe"/>
+	
+	<!--  -->
+
+</beans>
