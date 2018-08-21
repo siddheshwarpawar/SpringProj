@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 	<bean id="dateFormat" class="java.text.SimpleDateFormat"> -->
+<!-- 		<constructor-arg value="yyyy-MM-dd" /> -->
+<!-- 	</bean>  -->
+	
+
+<!-- cfg the dependent bean -->
+<!-- 	<bean id = "dept" class= "com.sp.beans.Department_D"> -->
+<!-- 		<constructor-arg name = "deptName" value="sales"/> -->
+<!-- 		<constructor-arg name = "deptNo" value="10"/> -->
+<!--  		<constructor-arg name="dop"> -->
+<!-- 			<bean factory-bean="dateFormat" factory-method="parse"> -->
+<!-- 				<constructor-arg value="2010-05-05"/> -->
+<!-- 			</bean> -->
+<!--  		 </constructor-arg> -->
+<!-- 	</bean> -->
+	
+
+<!-- cfg the target bean -->
+<!-- 	<bean id = "emp" class="com.sp.beans.Employee_T"> -->
+<!-- 		<property name="eno" value="10"/> -->
+<!-- 		<property name="name" value="siddhu"/> -->
+<!-- 		<property name="d" ref="dept"/> -->
+<!-- 		<property name="dob"> -->
+<!-- 			<bean factory-bean="dateFormat" factory-method="parse"> -->
+<!-- 				<constructor-arg value="2015-02-02"/> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+
+
+<!-- cofigure Date -->
+<bean id="dt" class="java.util.Date" p:year="2015"
+									p:month="10"
+									p:date="10"/>
+									
+									
+<!-- cofigure dependent class -->
+<bean id = "dept" class ="com.sp.beans.Department_D" c:deptName="Sales"
+													c:deptNo="125"
+													c:dop-ref="dt"/>
+													
+													
+													
+<!-- configure target class obejct -->
+<bean id = "emp" class="com.sp.beans.Employee_T" p:eno="2"
+												p:name="Siddheshwar"
+												p:d-ref="dept"
+												p:dob-ref="dt"></bean>
+
+
+
+
+
+
+
+
+</beans>

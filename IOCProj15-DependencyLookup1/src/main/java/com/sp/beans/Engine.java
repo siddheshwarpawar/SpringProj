@@ -10,4 +10,7 @@ public class Engine {
 		System.out.println("Engine is started");
 	}
 
+	public void stop() {
+		System.out.println("Engine is stopped");
+	}
 }// class

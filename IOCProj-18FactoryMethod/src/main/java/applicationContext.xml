@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Using static factory method it's own class object -->
+	<bean id = "c1" class = "java.lang.Class" factory-method="forName">
+		<constructor-arg value="java.util.Date"/>
+	</bean>
+
+<!-- Using static factory method it gives arbitry class object-->
+	<bean id = "c2" class= "java.util.Calendar" factory-method="getInstance"/>
+
+<!-- using instance factory method which gives same class object -->
+	<bean id = "string" class="java.lang.String">
+		<constructor-arg value="Hello.."/>
+	</bean>
+	
+	<bean id = "s1" class="java.lang.String" factory-bean="string" factory-method="concat">
+		<constructor-arg value="How are You ?"/>
+	</bean>
+	
+	<bean id = "s2" class= "java.lang.String" factory-bean="string" factory-method="concat">
+		<constructor-arg value = "What are You Doing ?"></constructor-arg>
+	</bean>
+<!-- using instance factory method which gives arbitary class object instead giving its own class or family class object -->
+
+	<bean id = "sb" class= "java.lang.StringBuffer">
+		<constructor-arg value="Hello how are u?"/>
+	</bean>
+	<bean id = "s3" class = "java.lang.String" factory-bean="sb" factory-method="substring">
+		<constructor-arg value="0"/>
+		<constructor-arg value="5"/>
+	</bean>
+</beans>

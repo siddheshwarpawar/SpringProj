@@ -7,5 +7,7 @@
 	<bean id = "engg1" class = "com.sp.beans.Engine"/>
 	
 <!-- target class objects -->
-	<bean id = "bid" class = "com.sp.beans.Viechle"/>
+	<bean id = "bid" class = "com.sp.beans.Viechle">
+	 <constructor-arg value="engg"/> 
+	</bean>
 </beans>

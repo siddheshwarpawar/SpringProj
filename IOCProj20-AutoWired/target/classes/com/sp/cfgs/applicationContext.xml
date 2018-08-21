@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+		<!-- configure depedent class object -->
+<!-- 	<bean id="tp2" class="com.sp.beans.TourPlan"> -->
+<!-- 		<property name="places"> -->
+<!-- 			<list> -->
+<!-- 				<value>Agra</value> -->
+<!-- 				<value>Shimala</value> -->
+<!-- 				<value>Manali</value> -->
+<!-- 				<value>Goa</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+	<bean id="tp3" class="com.sp.beans.TourPlan" primary="true">
+		<property name="places">
+			<list>
+				<value>Agra</value>
+				<value>Shimala</value>
+				<value>Manali</value>
+				<value>Goa</value>
+			</list>
+		</property>
+	</bean>	
+	
+	<bean id = "places" class= "com.sp.beans.TravelAgent" autowire="byName"/>
+	
+
+
+
+	<!-- Configure the target class object -->
+<!-- 	<bean id = "ta1" class= "com.sp.beans.TravelAgent" autowire="constructor"/> -->
+		
+	<!-- Configure the target class object -->
+<!-- 	<bean id = "ta2" class= "com.sp.beans.TravelAgent" autowire="byType"/> -->
+	
+	<!-- Configure the target class object -->
+<!-- 	<bean id = "ta3" class= "com.sp.beans.TravelAgent" autowire="default"> -->
+<!-- 		<property name="tp" ref="tp3"/> -->
+<!-- 	</bean> -->
+
+	<!-- Configure the target class object -->
+<!-- 	<bean id = "ta4" class= "com.sp.beans.TravelAgent" autowire="no"> -->
+<!-- 			<property name="tp" ref="tp3"/> -->
+<!-- 	</bean> -->
+	
+	
+	
+</beans>
