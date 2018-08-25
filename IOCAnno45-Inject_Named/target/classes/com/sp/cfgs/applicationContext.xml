@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id = "a" class = "com.sp.beans.Engine">
+		<property name="id" value="220"/>
+		<property name="type" value="car"/>
+	</bean>
+	
+	
+	<bean id = "b" class = "com.sp.beans.Engine">
+		<property name="id" value="150"/>
+		<property name="type" value="Sport Car"/>
+	</bean>
+	
+	
+	<context:component-scan base-package="com.sp.beans"/>
+
+</beans>
