@@ -1,0 +1,16 @@
+SQL> desc userlist1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ UNAME                                     NOT NULL VARCHAR2(20)
+ PASS                                               VARCHAR2(10)
+ 
+ ================================================================================================
+SQL> select * from userlist1;
+
+UNAME                PASS
+-------------------- ----------
+raja                 rani
+rani                 raja
+xyz                  pqr
+pqr                  xyz
+

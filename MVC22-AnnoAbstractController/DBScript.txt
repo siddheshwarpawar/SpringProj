@@ -1,0 +1,12 @@
+SQL> select * from emp;
+
+       EID ENAME           DESG                     SALARY
+---------- --------------- -------------------- ----------
+       888 Chandrakant     Sr developer              80000
+       101 Raja            sr Developer               8000
+       102 shahrukh        hero                       7000
+       103 Maduri          HR                         9000
+       105 Deepika         Chairmen                   8000
+       106 katrina         HR                         8000
+
+6 rows selected.
