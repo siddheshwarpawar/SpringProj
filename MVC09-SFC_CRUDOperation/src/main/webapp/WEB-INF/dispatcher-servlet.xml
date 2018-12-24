@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	
+	<!-- PVC -->
+	<bean id = "pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="home"/>
+	</bean>
+	
+	<!-- Employee list controller -->
+	<bean id ="stc" class = "com.sp.controller.StudentController">
+		<constructor-arg ref ="service"/>
+	</bean>
+	
+	<!-- pvc insert -->
+	<bean id ="pvci" class = "org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="EmpInsert"/>
+	</bean>
+	 
+	
+	<!-- delete controller -->
+	<bean id ="dec" class ="com.sp.controller.EmpDeleteController">
+		<constructor-arg ref ="service"/>
+	</bean>
+	<!-- insert controller -->
+	<!-- <bean id = "eic" class= "com.sp.controller.EmpInsertController">
+		<property name="formView" value="insertEmp"/>
+		<property name="commandClass" value="com.sp.command.EmpCommand"></property>
+		<property name="commandName" value="empCmd"></property>
+		<property name="sessionForm" value="true"></property>
+		<property name="successView" value="insertResult"></property>
+		<constructor-arg ref="service"/>
+	</bean> -->
+	
+	<!-- update controller -->
+	<bean id = "uc" class = "com.sp.controller.EmpUpdateController">
+		<constructor-arg ref ="service"/>
+		<property name="formView" value="update_emp"></property>
+		<property name="commandClass" value="com.sp.command.EmpCommand"></property>
+		<property name="commandName" value="empCmd"/>
+		<property name="sessionForm" value="true"/>
+		<property name="successView" value="updateResult"/>
+	</bean>
+	
+	<bean id = "mac" class="com.sp.controller.EmpInsertController">
+		<constructor-arg ref="service"/>
+		<property name="methodNameResolver" ref="mnr"/>
+	</bean>
+	
+	<bean id = "mnr" class ="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="p1"/>
+		<property name="defaultMethodName" value="invalid"/>
+	</bean>
+	
+	<!-- handlerMapping -->
+	<bean id = "suhm" class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="welcome.htm">pvc</prop>
+				<prop key="list_stud.htm">stc</prop>
+				<prop key="add_emp.htm">pvci</prop>
+				<prop key="delete_emp.htm">dec</prop>
+				<prop key="update_emp.htm">uc</prop> 
+				<prop key="insert.htm">mac</prop>
+			</props>
+			</property>
+	</bean>
+	
+	<!-- viewResolver -->
+	<bean id ="irvr" class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

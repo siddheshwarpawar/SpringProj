@@ -1,0 +1,9 @@
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EID                                       NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(15)
+ DESG                                               VARCHAR2(20)
+ SALARY                                             NUMBER(9)
+
+ 
