@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- controller class config -->
+	<bean id = "hpc" class="com.sp.controller.HomePageController"/>
+	<!-- WishMsgController config -->
+	<bean id="wmsg" class="com.sp.controller.WishMsgController"/>
+	<!-- About US controller configuration -->
+	<!-- <bean id = "auc" class="com.sp.controller.AboutController"/> -->
+	<!-- Contact us Contrller configuration -->
+	<!-- <bean id = "cuc" class = "com.sp.controller.ContactController"/> -->
+	 
+	<bean id = "cuc" class = "org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="contactus"></property>
+	</bean>
+
+	<bean id = "auc" class = "org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="aboutus"></property>
+	</bean>
+	
+	<!-- handler mapping config -->
+	<bean id = "map" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="welcome.htm">hpc</prop>
+				<prop key="wish.htm">wmsg</prop>
+ 				<prop key="contactus.htm">cuc</prop>
+				<prop key="aboutus.htm">auc</prop> 
+			</props>
+		</property>
+	</bean>
+	
+	
+	<!-- viewResolver config -->
+	<bean id ="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

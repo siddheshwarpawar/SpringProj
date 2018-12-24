@@ -1,0 +1,12 @@
+SQL> desc emp1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(3)
+ NAME                                               VARCHAR2(10)
+ DESG                                               VARCHAR2(10)
+ SAL                                                NUMBER(5)
+ DEPTNO                                             NUMBER(4)
+
+SQL>
+
+ ID,NAME,DESG,SAL,DEPTNO                                      
